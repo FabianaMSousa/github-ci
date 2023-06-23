@@ -6,9 +6,9 @@ name: Grupo de acesso
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches: [ main ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -37,7 +37,7 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Step 3 Execute collection
-        run: newman run ./accessgroup-ci.json -e ./accessgroup-env.json.json --reporters cli, -r htmlextra --reporter-htmlextra-export ./results/Report.html
+        run: newman run ./accessgroup-ci -e ./accessgroup-env --reporters cli, -r htmlextra --reporter-htmlextra-export ./results/Report.html
 
       # Runs a set of commands using the runners shell
       - name: Step 4 Archive production artifacts
